@@ -3,7 +3,7 @@
   <div class="box mat-elevation-z2">
   <div class="table-wrapper mat-typography">
     <h3 class="mat-title">Tabela de registos</h3>
-    <table mat-table [dataSource]="dataSource" matSort>
+    <table *ngIf="dataSource.data.length" mat-table [dataSource]="dataSource" matSort>
           <!-- Position Column -->
       <ng-container matColumnDef="created">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Data de registo </th>
@@ -31,6 +31,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-spinner *ngIf="!dataSource.data.length"></mat-spinner>
   </div>
   <mat-paginator [pageSizeOptions]="[10, 20, 30, 40, 50]" showFirstLastButtons></mat-paginator>
   </div>
