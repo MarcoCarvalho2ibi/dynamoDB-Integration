@@ -3,7 +3,7 @@ import { throwError, Subject } from 'rxjs';
 import { User } from "./user.interface";
 import { catchError } from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +17,7 @@ export class UsersService {
 
   getStaticData(selected: string): void {
 
-    const url = `https://g1o0oqk0y7.execute-api.us-east-1.amazonaws.com/desk2U_test/${selected}`;
+    const url = `${environment.apiUrl}/${selected}`;
     this.http.get<any>(url, {})
       .pipe(
         catchError((e) => this.handleError(e))
