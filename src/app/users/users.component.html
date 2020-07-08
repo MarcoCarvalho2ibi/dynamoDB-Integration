@@ -1,0 +1,37 @@
+<div class="container ">
+  <img class="logo" src="https://desk2u.com/images/desk2u%20logo_header.png" width="150" alt="Logo" srcset="">
+  <div class="box mat-elevation-z2">
+  <div class="table-wrapper mat-typography">
+    <h3 class="mat-title">Tabela de registos</h3>
+    <table mat-table [dataSource]="dataSource" matSort>
+          <!-- Position Column -->
+      <ng-container matColumnDef="created">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Data de registo </th>
+        <td mat-cell *matCellDef="let user"> {{getDateTime(user).created}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Hora de registo </th>
+        <td mat-cell *matCellDef="let user"> {{user.time}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <td mat-cell *matCellDef="let user"> {{user.name}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <mat-paginator [pageSizeOptions]="[10, 20, 30, 40, 50]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

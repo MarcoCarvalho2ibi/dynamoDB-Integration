@@ -126,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "desk2u-trial-table"
+    }
+  },
+  "defaultProject": "desk2u-trial-table",
+  "cli": {
+    "analytics": false
+  }
 }
